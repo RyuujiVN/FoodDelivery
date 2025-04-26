@@ -51,18 +51,24 @@
 
   &__form {
     flex: 1;
-    padding: 0 2rem;
+    padding: 0 4rem;
     align-items: center;
-    text-align: center;
 
     &--title {
       font-size: 4rem;
       font-weight: 600;
       margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    a {
+      text-align: center;
+      display: block;
     }
 
     &--button {
       margin-top: 2rem;
+      text-align: center;
     }
   }
 }

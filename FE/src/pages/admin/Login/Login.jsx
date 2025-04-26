@@ -69,13 +69,11 @@ const Login = () => {
 
               <Link to="/admin/forgot-password"><Text>Quên mật khẩu?</Text></Link>
 
-              <Form.Item className="login__form--item">
-                  
+              <Form.Item className="login__form--button" >
                   <Button
                     type="primary"
                     htmlType="submit"
                     size="large"
-                    className="login__form--button"
                   >
                     Đăng nhập
                   </Button>
