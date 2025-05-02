@@ -1,10 +1,12 @@
 import express from 'express';
+import exitHook from 'async-exit-hook';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import corsOptions from '~/configs/corsConfig.js';
-import APIs_V1 from '~/routes/v1/admin/index.js';
 import 'dotenv/config'
+import APIs_V1 from '~/routes/v1/admin/index.js';
+import { CLOSE_DB, CONNECT_DB, GET_DB } from '~/configs/databaseConfig.js';
 
 const START_SERVER = () => {
   const app = express()
@@ -32,10 +34,18 @@ const START_SERVER = () => {
   app.listen(port, () => {
     console.log(`App listening on http://localhost:${port}`)
   })
+
+  exitHook(() => {
+    CLOSE_DB();
+    console.log('Closed MongoDB...')
+  })
 }
 
 (async () => {
   try {
+    // Connect to database
+    await CONNECT_DB()
+    console.log('Connected to MongoDB...')
     // Start server
     console.log('Starting server...')
     START_SERVER()
