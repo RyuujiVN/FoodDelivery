@@ -1,8 +1,9 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
+import env from "~/configs/environment";
 
 let foodDeliveryDBInstance = null;
 
-const mongoClientIntance = new MongoClient(process.env.DATABASE_URL, {
+const mongoClientIntance = new MongoClient(env.DATABASE_URL, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,

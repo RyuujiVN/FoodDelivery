@@ -1,6 +1,7 @@
 import joi from "joi";
 import { StatusCodes } from "http-status-codes";
 import { json } from "body-parser";
+import ApiError from "~/utils/ApiError";
 
 // Validation for create new food
 const createNew = async (req, res, next) => {
@@ -20,7 +21,7 @@ const createNew = async (req, res, next) => {
 
     next()
   } catch (error) {
-    res.status(StatusCodes.UNPROCESSABLE_ENTITY, json({
+    throw new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, json({
       errors: new Error(error).message
     }))
   }

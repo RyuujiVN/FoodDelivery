@@ -4,14 +4,14 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import corsOptions from '~/configs/corsConfig.js';
-import 'dotenv/config'
 import APIs_V1 from '~/routes/v1/admin/index.js';
 import { CLOSE_DB, CONNECT_DB, GET_DB } from '~/configs/databaseConfig.js';
-import errorHandlingMiddleware from '~/middleware/errorHandlingMiddleware';
+import errorHandlingMiddleware from '~/middlewares/errorHandlingMiddleware';
+import env from '~/configs/environment.js';
 
 const START_SERVER = () => {
   const app = express()
-  const port = process.env.PORT || 3000
+  const port = env.PORT || 3000
 
   // cors
   app.use(cors(corsOptions));
