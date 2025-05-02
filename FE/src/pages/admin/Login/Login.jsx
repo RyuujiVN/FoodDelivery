@@ -1,9 +1,18 @@
 import { Button, Flex, Form, Input, Space, Typography } from "antd";
 import { Link } from "react-router-dom";
 import "~/pages/admin/Login/Login.scss";
+import adminService from "~/services/admin/adminService";
 
 const Login = () => {
-  const { Title, Text } = Typography;
+  const { Text } = Typography;
+
+  const handleLogin = async (data) => {
+    try {
+      const res = await adminService.login(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -23,16 +32,12 @@ const Login = () => {
 
           {/* Login Right */}
           <div className="login__form">
-            <h2
-              className="login__form--title"
-            >
-              Đăng nhập
-            </h2>
-            <Form gutter={24} layout="vertical">
+            <h2 className="login__form--title">Đăng nhập</h2>
+            <Form gutter={24} layout="vertical" onFinish={handleLogin}>
               <Form.Item
                 className="login__form--item"
-                label="Tài khoản:"
-                name="account"
+                label="Email:"
+                name="email"
                 layout="vertical"
                 rules={[
                   {
@@ -67,16 +72,14 @@ const Login = () => {
                 />
               </Form.Item>
 
-              <Link to="/admin/forgot-password"><Text>Quên mật khẩu?</Text></Link>
+              <Link to="/admin/forgot-password">
+                <Text>Quên mật khẩu?</Text>
+              </Link>
 
-              <Form.Item className="login__form--button" >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    size="large"
-                  >
-                    Đăng nhập
-                  </Button>
+              <Form.Item className="login__form--button">
+                <Button type="primary" htmlType="submit" size="large">
+                  Đăng nhập
+                </Button>
               </Form.Item>
             </Form>
           </div>
