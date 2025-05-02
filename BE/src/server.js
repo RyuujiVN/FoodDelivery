@@ -7,6 +7,7 @@ import corsOptions from '~/configs/corsConfig.js';
 import 'dotenv/config'
 import APIs_V1 from '~/routes/v1/admin/index.js';
 import { CLOSE_DB, CONNECT_DB, GET_DB } from '~/configs/databaseConfig.js';
+import errorHandlingMiddleware from '~/middleware/errorHandlingMiddleware';
 
 const START_SERVER = () => {
   const app = express()
@@ -30,6 +31,9 @@ const START_SERVER = () => {
 
   // Route Admin
   app.use('/admin/api/v1', APIs_V1)
+
+  // Middleware for error handling
+  app.use(errorHandlingMiddleware)
 
   app.listen(port, () => {
     console.log(`App listening on http://localhost:${port}`)

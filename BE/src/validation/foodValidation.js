@@ -13,8 +13,11 @@ const createNew = async (req, res, next) => {
     status: joi.string().valid("active", "inactive").default("active"),
   })
 
+
+
   try {
-    await correctCondition.validateAsync(req.body, { abortEarly: false })
+    await correctCondition.validate(req.body, { abortEarly: false })
+
     next()
   } catch (error) {
     res.status(StatusCodes.UNPROCESSABLE_ENTITY, json({
@@ -24,7 +27,7 @@ const createNew = async (req, res, next) => {
 }
 
 const foodValidation = {
-  createNew: createNew
+  createNew
 }
 
 export default foodValidation
