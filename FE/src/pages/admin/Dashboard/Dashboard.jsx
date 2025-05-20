@@ -1,9 +1,10 @@
 import { Input } from "antd";
+import Header from "~/components/admin/Header/Header";
 
 const Dashboard = () => {
   return (
     <>
-      <Input variant="underlined"/>
+      <h1>Hi</h1>
     </>
   );
 };
