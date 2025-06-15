@@ -1,0 +1,56 @@
+openapi: 3.0.4
+info:
+  title: Food Delivery API
+  description: |-
+    Đây là API cho web Food Delivery
+  contact:
+    email: nguyenbaolong1405@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.12
+servers:
+  - url: http://localhost:8017/
+tags:
+  - name: admin
+    description: Các api liên quan đến admin
+paths:
+  /admin/api/v1/authen/login:
+    post:
+      tags:
+        - admin
+      summary: Đăng nhập
+      description: Đăng nhập vào hệ thống
+      operationId: login
+      requestBody:
+        description: Thông tin đăng nhập
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "admin@gmail.com"
+                password:
+                  type: string
+                  example: "123456"
+      responses:
+        "200":
+          description: Đăng nhập thành công
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  email:
+                    type: string
+                  name:
+                    type: string
+                  role:
+                    type: string
+        "422":
+          description: Lỗi dữ liệu đầu vào

@@ -1,4 +1,4 @@
-import env from "~/configs/environment"
+import env from "../configs/environment"
 
 const { StatusCodes } = require("http-status-codes")
 

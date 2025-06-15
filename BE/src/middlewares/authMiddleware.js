@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes"
-import env from "~/configs/environment"
-import JwtProvider from "~/providers/JwtProvider"
-import ApiError from "~/utils/ApiError"
+import env from "../configs/environment"
+import JwtProvider from "../providers/JwtProvider"
+import ApiError from "../utils/ApiError"
 
 
 const isAuthorized = async (req, res, next) => {

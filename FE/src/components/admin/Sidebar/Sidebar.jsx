@@ -2,7 +2,7 @@ import Sider from "antd/es/layout/Sider";
 import { Menu } from "antd";
 import { MdOutlineDashboardCustomize, MdOutlineFastfood } from "react-icons/md";
 import "./Sidebar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const items = [
   {
@@ -16,10 +16,19 @@ const items = [
   },
 
   {
-    key: "foods",
+    key: "food",
     label: (
-      <Link to="/admin/foods" className="sidebar__menu--item">
+      <Link to="/admin/food" className="sidebar__menu--item">
         <MdOutlineFastfood className="sidebar__menu--item-icon" /> Món ăn
+      </Link>
+    ),
+  },
+
+  {
+    key: "category",
+    label: (
+      <Link to="/admin/category" className="sidebar__menu--item">
+        <MdOutlineFastfood className="sidebar__menu--item-icon" /> Loại món
       </Link>
     ),
   },
@@ -35,13 +44,17 @@ const items = [
 ];
 
 const Sidebar = () => {
+  const location = useLocation();
+
+  console.log(location.pathname.split("/")[2]);
+
   return (
     <>
       <Sider theme="light" className="sidebar">
         <Menu
           items={items}
           className="sidebar__menu"
-          defaultSelectedKeys={["dashboard"]}
+          defaultSelectedKeys={[location.pathname.split("/")[2]]}
         />
       </Sider>
     </>

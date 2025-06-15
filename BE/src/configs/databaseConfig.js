@@ -1,5 +1,5 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-import env from "~/configs/environment";
+import env from "./environment";
 
 let foodDeliveryDBInstance = null;
 

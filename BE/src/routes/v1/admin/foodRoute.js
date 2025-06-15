@@ -1,5 +1,5 @@
 import express from 'express';
-import foodController from '~/controllers/foodController';
+import foodController from '~/controllers/admin/foodController';
 import foodValidation from '~/validation/foodValidation';
 
 const router = express.Router();

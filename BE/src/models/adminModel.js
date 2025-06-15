@@ -1,6 +1,6 @@
 import joi from "joi"
-import { GET_DB } from "~/configs/databaseConfig"
-import { OBJECT_ID_RULE, OBJECT_ID_RULE_MESSAGE, PHONE_RULE, PHONE_RULE_MESSAGE } from "~/utils/validators"
+import { GET_DB } from "../configs/databaseConfig"
+import { OBJECT_ID_RULE, OBJECT_ID_RULE_MESSAGE, PHONE_RULE, PHONE_RULE_MESSAGE } from "../utils/validators"
 
 // Define Collection (Name & Schema)
 const ADMIN_COLLECTION_NAME = "admins"

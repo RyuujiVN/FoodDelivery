@@ -23,3 +23,20 @@ body {
   font-size: 1.6rem;
   font-family: "Rubik", sans-serif;
 }
+
+.input {
+  &__search {
+    width: 300px;
+  }
+}
+
+// Box-head
+.box-head {
+  &__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 2.4rem;
+  }
+}
+
+// End box-head

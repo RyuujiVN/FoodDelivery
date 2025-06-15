@@ -1,7 +1,7 @@
 import joi from "joi";
 import { StatusCodes } from "http-status-codes";
 import { json } from "body-parser";
-import ApiError from "~/utils/ApiError";
+import ApiError from "../utils/ApiError";
 
 // Validation for create new food
 const createNew = async (req, res, next) => {

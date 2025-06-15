@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes"
-import env from "~/configs/environment"
-import adminModel from "~/models/adminModel"
-import JwtProvider from "~/providers/JwtProvider"
-import ApiError from "~/utils/ApiError"
+import env from "../../configs/environment"
+import adminModel from "../../models/adminModel"
+import JwtProvider from "../../providers/JwtProvider"
+import ApiError from "../../utils/ApiError"
 
 
 const login = async (reqBody) => {
@@ -16,7 +16,7 @@ const login = async (reqBody) => {
   // }
 
   if (!admin) {
-    throw new ApiError(StatusCodes.UNAUTHORIZED, "Email or password is incorrect")
+    throw new ApiError(StatusCodes.UNAUTHORIZED, "Tài khoản hoặc mật khẩu bị sai")
   }
 
   const adminInfo = {

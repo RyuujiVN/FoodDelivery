@@ -3,5 +3,6 @@
   "plugins": [
     ["@babel/transform-runtime"],
     ["module-resolver", { "alias": { "~": "./src" } }]
-  ]
+  ],
+  "comments": true
 }

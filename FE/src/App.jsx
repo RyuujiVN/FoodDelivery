@@ -1,4 +1,5 @@
 import { ConfigProvider } from "antd";
+import { ToastContainer } from "react-toastify";
 import AllRoute from "~/components/AllRoute/AllRoute";
 
 function App() {
@@ -12,13 +13,17 @@ function App() {
           },
 
           components: {
-            Typography: {
-              
-            },
+            Typography: {},
           },
         }}
       >
         <AllRoute />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          closeOnClick={true}
+          pauseOnFocusLoss
+        />
       </ConfigProvider>
     </>
   );

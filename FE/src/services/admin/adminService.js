@@ -1,4 +1,4 @@
-import { API_ADMIN } from "~/api/intance";
+import { API_ADMIN } from "~/api/adminApi";
 
 
 const login = async (data) => {
