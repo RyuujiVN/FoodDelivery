@@ -1,15 +1,19 @@
 import { Form, Input, Modal } from "antd";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { fetchAddCategory } from "~/redux/category/categorySlice";
+import { fetchUpdateCategory } from "~/redux/category/categorySlice";
 
-const AddCategory = ({ addCategory, setAddCategory }) => {
+const EditCategory = ({ editCategory, setEditCategory, category }) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
-  const hanldeSubmit = async (values) => {
-    await toast.promise(dispatch(fetchAddCategory(values)), {
-      pending: "Đang thêm...",
+  const hanldeSubmit = (value) => {
+    const data = {
+      id: category._id,
+      data: value,
+    };
+    toast.promise(dispatch(fetchUpdateCategory(data)), {
+      pending: "Đang chỉnh sửa...",
     });
   };
 
@@ -17,18 +21,23 @@ const AddCategory = ({ addCategory, setAddCategory }) => {
     <div className="add-category">
       <Modal
         className="modal"
-        open={addCategory}
-        onCancel={() => setAddCategory(false)}
-        okText="Thêm"
+        open={editCategory}
+        onCancel={() => setEditCategory(false)}
+        okText="Sửa"
         cancelText="Hủy"
         onOk={() => form.submit()}
       >
         <div className="modal__header">
-          <h2 className="modal__header--title">Thêm loại</h2>
+          <h2 className="modal__header--title">Chỉnh sửa loại</h2>
         </div>
 
         <div className="modal__body">
-          <Form form={form} layout="vertical" onFinish={hanldeSubmit}>
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={hanldeSubmit}
+            initialValues={category}
+          >
             <Form.Item
               label="Tên loại"
               name="name"
@@ -53,4 +62,4 @@ const AddCategory = ({ addCategory, setAddCategory }) => {
   );
 };
 
-export default AddCategory;
+export default EditCategory;

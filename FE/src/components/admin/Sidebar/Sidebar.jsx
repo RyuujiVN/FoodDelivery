@@ -1,6 +1,7 @@
 import Sider from "antd/es/layout/Sider";
 import { Menu } from "antd";
 import { MdOutlineDashboardCustomize, MdOutlineFastfood } from "react-icons/md";
+import { BiFoodMenu } from "react-icons/bi";
 import "./Sidebar.scss";
 import { Link, useLocation } from "react-router-dom";
 
@@ -28,7 +29,7 @@ const items = [
     key: "category",
     label: (
       <Link to="/admin/category" className="sidebar__menu--item">
-        <MdOutlineFastfood className="sidebar__menu--item-icon" /> Loại món
+        <BiFoodMenu className="sidebar__menu--item-icon" /> Loại món
       </Link>
     ),
   },
@@ -45,8 +46,6 @@ const items = [
 
 const Sidebar = () => {
   const location = useLocation();
-
-  console.log(location.pathname.split("/")[2]);
 
   return (
     <>

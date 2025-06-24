@@ -20,17 +20,16 @@ const CATEGORY_SCHEMA = Joi.object({
   slug: Joi.string().required()
 })
 
-const validateBeforeCreate = async (data) => {
-  console.log("chạy qua đây!")
+const validateBeforeSubmit = async (data) => {
   return await CATEGORY_SCHEMA.validateAsync(data, { abortEarly: false })
 }
 
-// Create new category
-const createNew = async (data) => {
+// Get list category
+const getList = async (find) => {
   try {
-    const validateData = await validateBeforeCreate(data)
+    const categories = await GET_DB().collection(CATEGORY_COLLECTION_NAME).find(find).limit(10).skip(0).toArray()
 
-    return await GET_DB().collection(CATEGORY_COLLECTION_NAME).insertOne(validateData)
+    return categories
   } catch (error) {
     throw new Error(error)
   }
@@ -47,11 +46,48 @@ const findOne = async (id) => {
   }
 }
 
+// Create new category
+const createNew = async (data) => {
+  try {
+    const validateData = await validateBeforeSubmit(data)
+
+    return await GET_DB().collection(CATEGORY_COLLECTION_NAME).insertOne(validateData)
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+// Update one category
+const updateOne = async (id, data, dataPush) => {
+  try {
+    return await GET_DB().collection(CATEGORY_COLLECTION_NAME).updateOne({ _id: new ObjectId(id) }, {
+      $set: data,
+      $push: dataPush
+    })
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+// Delete one category
+const deleteOne = async (id) => {
+  try {
+    return await GET_DB().collection(CATEGORY_COLLECTION_NAME).deleteOne({
+      _id: new ObjectId(id)
+    })
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 const categoryModel = {
   CATEGORY_COLLECTION_NAME,
   CATEGORY_SCHEMA,
   createNew,
-  findOne
+  findOne,
+  getList,
+  updateOne,
+  deleteOne
 }
 
 export default categoryModel;

@@ -5,10 +5,6 @@ import ApiError from "../../utils/ApiError"
 const { StatusCodes } = require("http-status-codes")
 
 // [POST] /admin/login
-
-/*
-  @swagger
-*/
 const login = async (req, res, next) => {
   try {
     const account = await adminService.login(req.body)

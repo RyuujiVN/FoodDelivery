@@ -1353,12 +1353,13 @@ fdir@^6.4.3, fdir@^6.4.4:
     "@reduxjs/toolkit" "^2.8.2"
     antd "^5.24.8"
     axios "^1.9.0"
-    fe "file:C:/Users/Admin/AppData/Local/Yarn/Cache/v6/npm-fe-0.0.0-1aa9680c-2a16-4a0d-9593-0feb00019c82-1749994936669/node_modules/fe"
+    fe "file:C:/Users/Admin/AppData/Local/Yarn/Cache/v6/npm-fe-0.0.0-564bb18a-5d1a-4957-8b09-ec34c6e2603e-1750310314871/node_modules/fe"
     react "^19.0.0"
     react-dom "^19.0.0"
     react-icons "^5.5.0"
     react-redux "^9.2.0"
     react-router-dom "^7.5.1"
+    react-toastify "^11.0.5"
     sass "^1.87.0"
 
 file-entry-cache@^8.0.0:
@@ -2238,7 +2239,7 @@ react-dom@^19.0.0:
 
 react-icons@^5.5.0:
   version "5.5.0"
-  resolved "https://registry.npmjs.org/react-icons/-/react-icons-5.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.5.0.tgz#8aa25d3543ff84231685d3331164c00299cdfaf2"
   integrity sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==
 
 react-is@^18.2.0:
